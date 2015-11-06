@@ -1,0 +1,12 @@
+Package: hunterr
+Type: Package
+Title: Hunter's Useful R Functions
+Version: 0.1
+Date: 2015-10-06
+Author: Hunter R. Merrill
+Maintainer: Not maintained <yourfault@somewhere.net>
+Description: Some useful functions, mainly for plotting. There's also a basis expansion function in there.
+License: none
+LazyData: TRUE
+RoxygenNote: 5.0.0
+Depends: ggplot2, grid, gridExtra
