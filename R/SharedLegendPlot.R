@@ -35,11 +35,11 @@
 #'  ggtitle("Final weight, by diet") +
 #'  theme(legend.position="none")        # No legend (redundant in this graph)
 #'
-#'grid_arrange_shared_legend(p1, p2, p3, p4, layout_mat = matrix(c(1,2,3,4,4,4), nrow=2, byrow=TRUE))
+#'sharedlegendplot(p1, p2, p3, p4, layout = matrix(c(1,2,3,4,4,4), nrow=2, byrow=TRUE))
 #'
 #' @export
 
-sharedlegendplot <- function(..., layout_mat = NULL) {
+sharedlegendplot <- function(..., layout = NULL) {
 
   plots <- list(...)
   g <- ggplot2::ggplotGrob(plots[[1]] + ggplot2::theme(legend.position="bottom"))$grobs
@@ -47,7 +47,7 @@ sharedlegendplot <- function(..., layout_mat = NULL) {
   lheight <- sum(legend$height)
   list_of_plots <- lapply(plots, function(x)
     x + ggplot2::theme(legend.position="none"))
-  if(!is.null(layout_mat)) list_of_plots$layout_matrix <- layout_mat
+  if(!is.null(layout_mat)) list_of_plots$layout_matrix <- layout
   gridExtra::grid.arrange(
     do.call(gridExtra::arrangeGrob, list_of_plots),
     legend,

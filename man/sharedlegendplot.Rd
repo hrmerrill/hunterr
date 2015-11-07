@@ -4,7 +4,7 @@
 \alias{sharedlegendplot}
 \title{Plot multiple ggplot2s in one page, with a shared legend.}
 \usage{
-sharedlegendplot(..., layout_mat = NULL)
+sharedlegendplot(..., layout = NULL)
 }
 \arguments{
 \item{...}{plot objects for plotting.}
@@ -45,7 +45,7 @@ p4 <- ggplot(subset(ChickWeight, Time==21), aes(x=weight, fill=Diet)) +
  ggtitle("Final weight, by diet") +
  theme(legend.position="none")        # No legend (redundant in this graph)
 
-grid_arrange_shared_legend(p1, p2, p3, p4, layout_mat = matrix(c(1,2,3,4,4,4), nrow=2, byrow=TRUE))
+sharedlegendplot(p1, p2, p3, p4, layout = matrix(c(1,2,3,4,4,4), nrow=2, byrow=TRUE))
 
 }
 

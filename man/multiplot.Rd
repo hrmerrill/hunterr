@@ -50,7 +50,7 @@ p4 <- ggplot(subset(ChickWeight, Time==21), aes(x=weight, fill=Diet)) +
  theme(legend.position="none")        # No legend (redundant in this graph)
 
 multiplot(p1, p2, p3, p4, cols=2)
-multiplot(p1, p2, p3, p4, layout_mat = matrix(c(1,2,3,4,4,4), nrow=2, byrow=TRUE))
+multiplot(p1, p2, p3, p4, layout = matrix(c(1,2,3,4,4,4), nrow=2, byrow=TRUE))
 
 }
 
