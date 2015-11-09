@@ -87,7 +87,7 @@ get_basis_expansion = function(df,
       fit.gam = mgcv::gam(Y~-1+s(X, bs="cc", k=num.knots[i]+2),
                           data=tmpdf,
                           knots=list("X" = knots.list[[i]]))
-      Z.marg.list[[i]] = mgcv::predict(fit.gam, type="lpmatrix")
+      Z.marg.list[[i]] = predict(fit.gam, type="lpmatrix")
       PenMat = fit.gam$smooth[[1]]$S[[1]]
       #Z.marg.list[[i]] = Z.marg.list[[i]] %*% backsolve(chol(PenMat), diag(ncol(PenMat)), transpose=T)
     }
