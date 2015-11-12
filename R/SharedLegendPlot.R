@@ -3,7 +3,7 @@
 #' Stolen shamelessly from https://github.com/hadley/ggplot2/wiki/Share-a-legend-between-two-ggplot2-graphs, with a modification to allow for custom layout.
 #'
 #' @param ... plot objects for plotting.
-#' @param layout_mat layout matrix for plots.
+#' @param layout layout matrix for plots.
 #' @examples
 #'
 #' rm(list=ls())
@@ -47,7 +47,7 @@ sharedlegendplot <- function(..., layout = NULL) {
   lheight <- sum(legend$height)
   list_of_plots <- lapply(plots, function(x)
     x + ggplot2::theme(legend.position="none"))
-  if(!is.null(layout_mat)) list_of_plots$layout_matrix <- layout
+  if(!is.null(layout)) list_of_plots$layout_matrix <- layout
   gridExtra::grid.arrange(
     do.call(gridExtra::arrangeGrob, list_of_plots),
     legend,
